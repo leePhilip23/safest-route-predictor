@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Ceevee Web Design</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+	<link rel="stylesheet" href="/static/logic.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+
+
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <script>window.ENV_VARIABLE = 'developer.here.com'</script><script src='../iframeheight.js'></script>
+    <link rel="stylesheet" type="text/css"
+            href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+
+    </head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="home">
+
+      <nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+<!--
+         <ul id="nav" class="nav">
+            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+            <li><a class="smoothscroll" href="#about">About</a></li>
+	         <li><a class="smoothscroll" href="#resume"></a></li>
+            <li><a class="smoothscroll" href="#portfolio">Works</a></li>
+            <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
+            <li><a class="smoothscroll" href="#contact">Contact</a></li>
+         </ul>  end #nav
+-->
+
+      </nav> <!-- end #nav-wrap -->
+
+      <div class="row banner">
+         <div class="banner-text">
+            <h1 class="responsive-headline">MIT OF THE SOUTH</h1>
+<!--
+            <h3>This is <span>innovator</span>, <span>illustrator</span> and <span>webdesigner</span> creating awesome and
+            effective visual identities for companies of all sizes around the globe. Let's <a class="smoothscroll" href="#about">start scrolling</a>
+            and learn more <a class="smoothscroll" href="#about">about me</a>.</h3>
+            <hr />
+-->
+<!--
+            <ul class="social">
+               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+               <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+               <li><a href="#"><i class="fa fa-skype"></i></a></li>
+            </ul>
+-->
+         </div>
+      </div>
+
+
+ <p class="scrolldown">
+
+         <a class="smoothscroll" href="#contact"><i class="icon-down-circle"></i></a>
+      </p>
+
+
+   </header> <!-- Header End -->
+
+
+   <!-- Contact Section
+   ================================================== -->
+   <section id="contact">
+     <form name="myForm" onsubmit="return valid()" action="{{ url_for('load') }}" method="POST">
+         <div id ="button"></div>
+
+      <div class="dataBox">
+
+        <label for="Starting Location">Starting Location: </label>
+
+        <input type="text"  placeholder="Starting Location" />
+
+        <label for="Destination">Destination: </label>
+
+        <input type="text" name="Destination" id="Destination" placeholder="Destination" />
+
+        <input type="submit"  value="Get Routes">
+         </div>
+
+
+    <div id="mapContainer"></div>
+         <script type="text/javascript" charset="utf-8">
+    //Initialize the Platform object:
+    var platform = new H.service.Platform({
+        'apikey': 'iQEwRwTp8TFH_ojrTcvkE7C_mR5yRsq740p6q5OyIc8'
+    });
+
+    // Get the default map types from the Platform object:
+    var defaultLayers = platform.createDefaultLayers();
+
+    // Instantiate the map:
+    var map = new H.Map(
+        document.getElementById('mapContainer'),
+        defaultLayers.vector.normal.map,
+        {
+            zoom: 10,
+            center: { lng: -96.75, lat:  32.98 }
+        });
+
+    // Create the default UI:
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    ui.getControl('zoom').setDisabled(false)
+    var mapSettings = ui.getControl('mapsettings');
+    var zoom = ui.getControl('zoom');
+    var scalebar = ui.getControl('scalebar');
+
+
+</script>
+
+    </form>
+
+   </section> <!-- Contact Section End-->
+
+
+
+
+   <!-- footer
+   ================================================== -->
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+<!--
+            <ul class="social-links">
+               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+               <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+               <li><a href="#"><i class="fa fa-skype"></i></a></li>
+            </ul>
+-->
+
+<!--
+            <ul class="copyright">
+               <li>Ceevee &copy; Copyright 2016</li>
+               <li>Design by <a href="http://srikrishnacommunication.com/Giridesigns.html" title="Styleshout" target="_blank">Giri Designs</a></li>
+            </ul>
+-->
+
+         </div>
+
+         <div id="go-top">
+             <a class="smoothscroll" title="Back to Top" href="#home">
+                 <i class="icon-up-open"></i>
+             </a>
+          </div>
+
+      </div>
+
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/init.js"></script>
+
+</body>
+
+</html>

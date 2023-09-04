@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toyota hackathon</title>
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <script src="mainJS.js"></script>
+
+  </head>
+  <body>
+  <div class="header">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/">What is this project?</a></li>
+      <li><a href="/">Contact</a></li>
+      <li><a href="/">About us</a></li>
+    </ul>
+
+    </div>
+    
+     <form name="myForm" onsubmit="return valid()" action="{{ url_for('logic') }}" method="POST">
+         <div id ="button"></div>
+      <div class="dataBox">
+      
+        <label for="Starting Location">Starting Location: </label>
+        <input type="text" name="Starting Location" id="Starting Location" placeholder="Starting Location" />
+        <label for="Destination">Destination: </label>
+        <input type="text" name="Destination " id="Destination" placeholder="Destination" />
+        <label for="Weather Condition">Weather Condition: </label>
+        <input type="text" name="Weather Condition " id="Weather Condition" placeholder="Weather Condition" />
+        
+        <input type="submit"  value="Submit">
+    </div>     
+    </form>   
+  </body>
+
+</html>
