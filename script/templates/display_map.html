@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>var platform = new H.service.Platform({ 'apikey': 'VR0szX6JihqzV4xvZRYJxbJ0b6wjg4Pyjm9BiwT8-u8' });</script>
+    <script>var targetElement = document.getElementById('mapContainer');</script>
+    <script>var zoom = {zoom};</script>
+    <script>var center = {center};</script>
+    <script>var route = {route};</script>
+    <script>var map = new H.Map(
+  document.getElementById('mapContainer'),
+  defaultLayers.vector.normal.map,
+  {
+    zoom: zoom,
+    center: center
+  });</script>
+    <script>map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});</script>
+</body>
+</html>

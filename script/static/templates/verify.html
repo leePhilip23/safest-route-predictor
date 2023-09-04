@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>2 Step Verification</title>
+        <link rel="stylesheet" href="/static/login.css">
+        <script src="loginpageJS.js"></script>
+    </head>
+
+    <body>
+        <div class="loginBox">
+            <!--<img src="avatar.png" class="avatar">-->
+            <h1>Enter two-step verification code</h1>
+            <form name="myForm" onsubmit="return valid()" action="{{ url_for('verify') }}" method="POST">
+                <p>Two-step verification code sent to email</p>
+                <input type="text" name="code" placeholder="Enter verification code" required>
+                <input type="submit" name="" value="Submit">
+                <a href="/">Home</a> <br>
+            </form>
+        </div>
+
+        {% if invalid_code == True: %}
+            <script>
+                alert("Your login verification code was incorrect! Check email again!");
+            </script>
+        {% endif %}
+    </body>
+</html>

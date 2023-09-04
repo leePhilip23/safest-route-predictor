@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="/static/login.css">
+        <script src="loginpageJS.js"></script>
+    </head>
+
+    <body>
+        <div class="loginBox">
+            <!--<img src="avatar.png" class="avatar">-->
+            <h1>Sign up here</h1>
+            <form name="myForm" onsubmit="return valid()" action="{{ url_for('signup') }}" method="POST">
+                <p>Email</p>
+                <input type="text" name="email" placeholder="Enter email" required>
+                <p>Username</p>
+                <input type="text" name="username" placeholder="Enter username" required>
+                <p>Password</p>
+                <input type="password" name="password" placeholder="Enter password" required>
+                <input type="submit" name="" value="Sign up">
+                <a href="/">Home</a> <br>
+            </form>
+        </div>
+
+        {% if username_exists == True: %}
+            <script>
+                alert("Username is already taken!");
+            </script>
+        {% endif %}
+
+        {% if password_exists == True: %}
+            <script>
+                alert("Password is already taken!");
+            </script>
+        {% endif %}
+
+        {% if email_exists == True: %}
+            <script>
+                alert("Email is already in use!");
+            </script>
+        {% endif %}
+
+        {% if password_valid != True: %}
+            <script>
+                alert("Password must be 8-20 characters, and must have at least 1 uppercase letter, 1 lowercase letter, and 1 special character!");
+            </script>
+        {% endif %}
+    </body>
+</html>

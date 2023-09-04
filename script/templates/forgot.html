@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reset Password</title>
+        <link rel="stylesheet" href="/static/login.css">
+        <script src="loginpageJS.js"></script>
+    </head>
+
+    <body>
+        <div class="loginBox">
+            <!--<img src="avatar.png" class="avatar">-->
+            <h1>Recover my password</h1>
+            <form name="myForm" onsubmit="return valid()" action="{{ url_for('forgot') }}" method="POST">
+                <p>Email</p>
+                <input type="text" name="email" placeholder="Enter email" required>
+                <input type="submit" name="" value="Login">
+                <a href="/">Back</a> <br>
+                <a href="/changepassword">Change password</a> <br>
+            </form>
+        </div>
+
+        {% if invalid_email == True: %}
+            <script>
+                alert("Email not found!");
+            </script>
+        {% endif %}
+    </body>
+
+</html>

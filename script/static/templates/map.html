@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+
+        <script type="text/javascript" src='../test-credentials.js'></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js%22%3E"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js%22%3E"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js%22%3E"></script>
+        <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js%22%3E"></script>
+        <script>window.ENV_VARIABLE = 'developer.here.com'</script><script src='../iframeheight.js'></script>
+
+        <style type="text/css">
+            body {
+                background: url("/static/background (1).jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 100vh;
+                margin: 0;
+                padding: 0;
+            }
+
+            .loginBox1 {
+                width: 440px;
+                height: 300px;
+                background: #000;
+                color: #fff;
+                top: 50%;
+                left: 50%;
+                position: absolute;
+                transform: translate(-50%,-50%);
+                box-sizing: border-box;
+                padding: 70px 30px;
+            }
+
+            h1 {
+                margin:0;
+                padding: 0 0 20px;
+                text-align: center;
+                font-size: 22px;
+            }
+
+            .loginBox1 p {
+                margin: 0;
+                padding: 0;
+                font-weight: bold;
+            }
+
+            .loginBox1 input {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .loginBox1 input[type="text"], input[type="password"]{
+                border: none;
+                border-bottom: 1px solid #fff;
+                background: transparent;
+                outline: none;
+                height: 40px;
+                color: #fff;
+                font-size: 16px;
+            }
+
+            .loginBox1 input[type= "submit"]{
+                border: none;
+                outline: none;
+                height: 40px;
+                background: linear-gradient(#B621FE,#1FD1F9 );
+                color: #fff;
+                font-size: 18px;
+                border-radius: 20px;
+            }
+
+            .loginBox1 input[type="submit"]:hover{
+                cursor: pointer;
+                background: linear-gradient(#5F0A87,#A4508B);
+                color: white;
+            }
+
+            .loginBox1 a {
+                text-decoration: none;
+                font-size: 12px;
+                line-height: 20px;
+                color: darkgrey;
+            }
+
+            .loginBox1 a:hover{
+                background: #ffc107
+            }
+        </style>
+        <script src="loginpageJS.js"></script>
+    </head>
+
+    <body>
+        <div class="loginBox1">
+            <form name="myForm" onsubmit="return valid()" action="{{ url_for('map') }}" method="POST">
+                <p>Starting Location</p>
+                <input type="text" name="start" placeholder="Starting Location" required>
+                <p>Destination</p>
+                <input type="text" name="finish" placeholder="Destination" required>
+                <input type="submit" name="" value="Get Routes">
+            </form>
+        </div>
+    </body>
+</html>

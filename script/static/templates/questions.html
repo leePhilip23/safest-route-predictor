@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"  />
+    <title>Survey</title>
+    <link rel="stylesheet" href="/static/questions.css">
+    <script src="validation.js"></script>
+  </head>
+
+  <body>
+    <div class="heading">
+        <h1 id="head">Enter the information</h1>
+        <h2 id="Subheading"><i>Help us, help you</i></h2>
+    </div>
+    <form name="myForm" onsubmit="return valid()" action="{{ url_for('survey') }}" method="POST">
+        <div id="content1">
+            <form>
+                <label>Name</label><br><br>
+                <input type="text" name="name" placeholder="Enter your name" class="box1" required> <br><br>
+
+                <label>Gender</label> <br><br>
+                <input type="text" name="gender" placeholder="Enter your Gender (M/F)" class="box2" required> <br><br>
+
+                <label>Age</label><br><br>
+                <input type="text" name="age" placeholder="Enter your age" class="box3" required><br><br>
+
+                <label>How many years have you been driving from</label><br><br>
+                <input type="text" name="yearsdrive" placeholder="Enter the amount of years" class="box4" required><br><br>
+
+                <label>Number of previous crashes</label><br><br>
+                <input type="text" name="crashes" placeholder="Enter the amount of crashes" class="box4" required><br><br>
+
+                <label>How many years old is the car</label><br><br>
+                <input type="text" name="yearscar" placeholder="Enter the years of car" class="box4" required><br><br>
+
+                <div class="submitButton">
+                    <input type="submit" name="submit" value="submit" class="submitButton">
+                </div>
+            </form>
+        </div>
+    </form>
+
+    {% if valid_gender != True: %}
+        <script>
+            alert("Invalid gender! Please enter M or F!");
+        </script>
+    {% endif %}
+
+    {% if valid_age != True: %}
+        <script>
+            alert("Invalid age! Please enter a number between 0 and 99!");
+        </script>
+    {% endif %}
+
+    {% if valid_years != True: %}
+        <script>
+            alert("Invalid number of years driving! Please enter a number between 0 and 70!");
+        </script>
+    {% endif %}
+
+    {% if valid_previous_crashes != True: %}
+        <script>
+            alert("Invalid number of previous crashes! Please enter a number at least 0!");
+        </script>
+    {% endif %}
+
+    {% if valid_years_car != True: %}
+        <script>
+            alert("Invalid number of years of car! Please enter a number at least 0!");
+        </script>
+    {% endif %}
+  </body>
+</html>
